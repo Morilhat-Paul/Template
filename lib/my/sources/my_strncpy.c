@@ -7,7 +7,7 @@
 
 #include "../../../include/my.h"
 
-char *my_strncpy(char *dest, char const *src, int n)
+char *my_strncpy (char *dest, char const *src, int n)
 {
     int nb = 0;
     int i = 0;

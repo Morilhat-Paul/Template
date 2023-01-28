@@ -21,8 +21,8 @@ _LYELLOW	=	\e[93m
 all:
 	@echo "${_END}${_BOLD}${_LYELLOW}	\
 	=== Building libs\t\t\t${_ITALIC}IN PROGRESS${_END}"
-	@make -j8 -C ./chained_list
-	@make -j8 -C ./my
+	@make -s -j8 -C ./chained_list
+	@make -s -j8 -C ./my
 	@echo "${_END}${_BOLD}${_GREEN}	\
 	=== Building libs\t\t\t${_ITALIC}DONE${_END}\n"
 

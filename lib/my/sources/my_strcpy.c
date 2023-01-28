@@ -7,7 +7,7 @@
 
 #include "../../../include/my.h"
 
-char *my_strcpy(char *dest, char const *src)
+char *my_strcpy (char *dest, char const *src)
 {
     int lenght = my_strlen(dest);
     for (int i = 0; src[i] != '\0'; i++, lenght++)

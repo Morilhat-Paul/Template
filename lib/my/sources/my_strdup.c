@@ -5,15 +5,11 @@
 ** my_strdup.c
 */
 
-#include <stdlib.h>
 #include "../../../include/my.h"
 
-char * my_strdup_string(char const *src)
+char * my_strdup(char const *src)
 {
-    int i = 0;
-    char *src_dup = malloc(sizeof(src) + 1);
-    for (; src[i] != '\0'; i++)
-        src_dup[i] = src[i];
-    src_dup[i] = '\0';
-    return (src_dup);
+    char *str = malloc(sizeof(char) * (my_strlen(src) + 1));
+    my_strcpy(str, src);
+    return (str);
 }

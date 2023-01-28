@@ -16,10 +16,13 @@
     #include <stdlib.h>
     #include <stdbool.h>
     #include <fcntl.h>
+    #include <sys/stat.h>
+    #include <sys/types.h>
 
 
     /* All functions of my lib */
 
+    size_t my_get_size_file(char const *file);
     int my_getnbr(char const *str);
     bool my_is_alpha(char letter);
     bool my_isneg(int nbr);
@@ -39,5 +42,6 @@
     char *my_strncpy(char *dest, char const *src, int n);
     char *my_strstr(char *str, char const *to_find);
     void my_swap(int *a, int *b);
+    int my_read_file(const char *file, char **buffer);
 
 #endif /* MY_H_ */

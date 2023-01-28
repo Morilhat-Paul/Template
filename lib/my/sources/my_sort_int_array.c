@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2022
 ** my
 ** File description:
-** my_strncmp.c
+** my_sort_int_array.c
 */
 
 #include "../../../include/my.h"
 
-int my_strncmp(char const *s1, char const *s2, int n)
+void my_sort_int_array(int *array, int size)
 {
-    return (0);
+    return;
 }

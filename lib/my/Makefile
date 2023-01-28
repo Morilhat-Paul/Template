@@ -43,15 +43,15 @@ CFLAGS	=	-W -Wall -Wextra -Werror	\
 
 ## 	SOURCES FILES	##
 
-SRC		=	my_getnbr.c	\
+SRC		=	my_get_size_file.c	\
+			my_getnbr.c	\
 			my_is_alpha.c	\
 			my_isneg.c	\
 			my_putchar.c	\
 			my_putnbr.c	\
 			my_putstr.c	\
+			my_read_file.c	\
 			my_revstr.c	\
-			my_show_params.c	\
-			my_sort_in_array.c	\
 			my_str_to_word_array.c	\
 			my_strcat.c	\
 			my_strcpy.c	\
@@ -62,6 +62,7 @@ SRC		=	my_getnbr.c	\
 			my_strncpy.c	\
 			my_strstr.c	\
 			my_swap.c
+
 
 
 

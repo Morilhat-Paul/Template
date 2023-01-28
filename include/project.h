@@ -17,11 +17,10 @@
     /* All functions for this project */
 
 
-
-    /* Helper */
+    /* All Macros for this project */
 
     #define HELPER \
-    "USAGE\n" \
-    "\nUSER INTERACTIONS\n"
+    "\nUSAGE\n" \
+    "\nDESCRIPTION\n"
 
 #endif /* PROJECT_H_ */

@@ -5,10 +5,7 @@
 ** my_struct.h
 */
 
-
 #include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
 
 #ifndef MY_STRUCT_H_
     #define MY_STRUCT_H_

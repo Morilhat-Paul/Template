@@ -1,18 +1,15 @@
 /*
 ** EPITECH PROJECT, 2022
-** my
+** Project
 ** File description:
-** my_isneg.c
+** my_nbrcompare.c
 */
 
 #include "../../../include/my.h"
 
-bool my_isneg(int n)
+bool my_nbr_is_lower(int nbr01, int nbr02)
 {
-    if (n >= 0) {
-        my_putchar('P');
+    if (nbr01 < nbr02)
         return (true);
-    }
-    my_putchar('N');
     return (false);
 }

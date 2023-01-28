@@ -11,7 +11,11 @@ void destroy_list (element_t **list)
 {
     if (*list == NULL)
         return;
-    for (element_t *it = *list; it != NULL; it = it->next) {
+    element_t *it = *list;
+    element_t *temp = NULL;
+    while (it != NULL) {
+        temp = it->next;
         free(it);
+        it = temp;
     }
 }
