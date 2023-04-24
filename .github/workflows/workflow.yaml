@@ -1,0 +1,76 @@
+on:
+  push:
+    branches:
+      - "main"
+      - "dev"
+
+env:
+  EXECUTABLES: "template, lib/libmy.a, lib/libchained_list.a"
+
+jobs:
+  Check_coding_style:
+    runs-on: ubuntu-latest
+    name: Check for Epitech coding-style
+    continue-on-error: false
+    container:
+      image: ghcr.io/epitech/coding-style-checker:latest
+      volumes:
+        - "coding-style_volume:/volume_mount"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Coding style
+        run: |
+            check.sh $(pwd) $(pwd)
+            echo "error_style_count=$(wc -l coding-style-reports.log | cut -d" " -f1)" >> "$GITHUB_OUTPUT"
+      - name: show error
+        if: steps.run-coding-style.outputs.error_style_count > 0
+        run: |
+          awk -F":" '{print "::error file="$1",line="$2",title="$3" coding style error::"$4}' coding-style-reports.log
+          exit 1
+
+  Check_program_compilation:
+    runs-on: ubuntu-latest
+    name: Check if the program compile correctly
+    needs: Check_coding_style
+    continue-on-error: false
+    container:
+      image: epitechcontent/epitest-docker:latest
+      volumes:
+        - "compilation-volume:/volume_mount"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Chech the program compilation
+        run: make
+        timeout-minutes: 2
+      - name: Check the cleaning
+        run: make clean
+      - name: Check for all executables
+        run: |
+            IFS=", ";
+            for file in $EXECUTABLES; do
+              if [ ! -x "$file" ]; then
+                echo "$file doesn't exist !"
+                exit 1
+              fi
+              exit 0
+            done
+
+  Run_tests:
+    runs-on: ubuntu-latest
+    name: Run all tests
+    needs: Check_program_compilation
+    container:
+      image: epitechcontent/epitest-docker:latest
+      volumes:
+        - "tests-volume:/volume_mount"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run the unitary tests
+        run: make re tests_run
+        timeout-minutes: 2
+      - name: Run the functional tests
+        run: make re tests_functional
+        timeout-minutes: 2
