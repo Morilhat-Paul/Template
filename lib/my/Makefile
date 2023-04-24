@@ -6,17 +6,17 @@
 ##
 
 # This is a minimal set of ANSI/VT100 color codes
-_END		=	\e[0m
-_BOLD		=	\e[1m
-_ITALIC		=	\e[3m
-_DIM		=	\e[2m
-_RDIM		=	\e[22m
+END		=	"\e[0m"
+BOLD	=	"\e[1m"
+ITALIC	=	"\e[3m"
+DIM		=	"\e[2m"
+RDIM	=	"\e[22m"
 
 # Colors
-_GREEN		=	\e[32m
-_YELLOW		=	\e[33m
-_PURPLE		=	\e[35m
-_LYELLOW	=	\e[93m
+GREEN	=	"\e[32m"
+PURPLE	=	"\e[35m"
+BLUE	=	"\e[36m"
+LYELLOW	=	"\e[93m"
 
 
 ##		OPTIONS		##
@@ -25,6 +25,10 @@ TARGET_NAME		=	libmy.a
 SOURCE_DIR		=	sources
 OBJECT_DIR		=	objects
 HEADER_DIR		=	include
+ARR				=	array
+MAT				=	maths
+PUT				=	put
+STR				=	strings
 
 vpath %.c $(SOURCE_DIR)
 
@@ -43,48 +47,61 @@ CFLAGS	=	-W -Wall -Wextra -Werror	\
 
 ## 	SOURCES FILES	##
 
-SRC		=	my_get_size_file.c	\
-			my_getnbr.c	\
-			my_is_alpha.c	\
-			my_isneg.c	\
-			my_putchar.c	\
-			my_putnbr.c	\
-			my_putstr.c	\
-			my_read_file.c	\
-			my_revstr.c	\
-			my_str_to_word_array.c	\
-			my_strcat.c	\
-			my_strcpy.c	\
-			my_strdup.c	\
-			my_strlen.c	\
-			my_strncat.c	\
-			my_strncmp.c	\
-			my_strncpy.c	\
-			my_strstr.c	\
-			my_swap.c
-
+SRC		=	$(MAT)/my_addition.c	\
+			$(MAT)/my_binary_to_decimal.c	\
+			$(MAT)/my_getnbr.c	\
+			$(MAT)/my_is_prime.c	\
+			$(MAT)/my_multiplication.c	\
+			$(MAT)/my_nbrcmp.c	\
+			$(MAT)/my_power.c	\
+			$(MAT)/my_square_root.c	\
+			$(PUT)/my_perror.c	\
+			$(PUT)/my_putchar.c	\
+			$(PUT)/my_putnbr.c	\
+			$(PUT)/my_putstr.c	\
+			$(STR)/my_addchar.c	\
+			$(STR)/my_revstr.c	\
+			$(STR)/my_str_to_nbr.c	\
+			$(STR)/my_str_to_word_array.c	\
+			$(STR)/my_strcat.c	\
+			$(STR)/my_strcmp.c	\
+			$(STR)/my_strcpy.c	\
+			$(STR)/my_strdup.c	\
+			$(STR)/my_strlen.c	\
+			$(STR)/my_strlowcase.c	\
+			$(STR)/my_strncat.c	\
+			$(STR)/my_strncmp.c	\
+			$(STR)/my_strncpy.c	\
+			$(STR)/my_strstr.c	\
+			$(STR)/my_strupcase.c	\
+			$(ARR)/my_destroy_array.c	\
+			$(ARR)/my_putarray.c	\
+			$(ARR)/my_putnarray.c	\
+			$(ARR)/my_create_array.c
 
 
 
 ## 	OBJECT FILES 	##
 
-OBJ		=	$(SRC:.c=.o)
+OBJ		=	${SRC:%.c=${OBJECT_DIR}/%.o}
+
+${OBJECT_DIR}/%.o : %.c
+	@mkdir -p $(dir $@)
+	@${CC} -c $< -o $@ ${CFLAGS} ${LFLAGS}
+	@echo ${BOLD}${PURPLE}"\t=== Compiling $<" $(END)
 
 
 
 ##		RECIPES		##
 
-.PHONY: all directories re clean fclean
+.PHONY: all re clean fclean
 
-all: directories $(TARGET_NAME)
-
-directories: | $(SOURCES_DIR) $(OBJECT_DIR)
+all: $(TARGET_NAME)
 
 clean:
-	@rm -rf ./$(OBJECT_DIR)/*.o
+	@rm -rf $(OBJECT_DIR)
 
 fclean: clean
-	@rm -rf ./$(OBJECT_DIR)
 	@rm -f $(TARGET_NAME)
 
 re: fclean all
@@ -94,14 +111,7 @@ re: fclean all
 ##	FILE GENERATOR	##
 
 $(TARGET_NAME): $(OBJ)
-	@mv *.o $(OBJECT_DIR)
-	@$(AR) rc $(TARGET_NAME) $(OBJECT_DIR)/*.o
-	@cp $(TARGET_NAME) ..
-	@echo "${_BOLD}${_GREEN}${_DIM}	\
-	\t====== ${_RDIM}${_BOLD}Building my\t\t\t${_ITALIC}DONE${_END}"
-
-$(OBJECT_DIR):
-	@mkdir -p $@
-
-$(SOURCE_DIR):
-	@echo "${_BOLD}${_LYELLOW}Error: source folder not found !\n${_END}"
+	@$(AR) rc $(TARGET_NAME) $(OBJ)
+	@cp $@ ..
+	@echo ${BOLD}${GREEN}\
+	"\t=== Building my\t\t\t"${ITALIC}"DONE !\n" ${END}
