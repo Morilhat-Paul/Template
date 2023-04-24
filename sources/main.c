@@ -9,12 +9,9 @@
 
 int main(int argc, char **argv)
 {
-    if (argc == 2) {
-        if (argv[1][0] == '-' && argv[1][1] == 'h') {
-            my_putstr(HELPER);
-            return (0);
-        }
+    if ((argc == 2) && (is_helper(argv[1]))) {
+        my_putstr(HELPER);
+        return (0);
     }
-    return (0);
+    return (template(argc, argv));
 }
-   
