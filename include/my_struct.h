@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** Bootstrap
+** Include
 ** File description:
 ** my_struct.h
 */
@@ -11,6 +11,7 @@
     #define MY_STRUCT_H_
 
     typedef struct element {
+        void *data;
         struct element *next;
     } element_t;
 

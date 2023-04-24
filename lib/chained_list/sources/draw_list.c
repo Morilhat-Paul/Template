@@ -5,18 +5,19 @@
 ** draw_list.c
 */
 
+#include "../../../include/my_chained_list.h"
 #include "../../../include/my.h"
 
-void draw_list (element_t **list)
+void draw_list(element_t *list, void (*pf)(void *))
 {
-    int i = 0;
-    if (*list == NULL) {
+    if (list == NULL) {
         my_putstr("The list is empty\n");
         return;
     }
-    for (element_t *it = *list; it != NULL; it = it->next, i++) {
-        my_putstr("This is the list !");
+
+    while (list) {
+        (*pf)(list->data);
+        list = list->next;
     }
     my_putchar('\n');
-    return;
 }

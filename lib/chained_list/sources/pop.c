@@ -5,14 +5,16 @@
 ** pop.c
 */
 
-#include "../../../include/my.h"
+#include "../../../include/my_chained_list.h"
 
-element_t * pop_back (element_t **list)
+element_t * pop_back(element_t **list)
 {
+    if ((list == NULL) && (*list == NULL))
+        return (NULL);
+
     element_t *it = *list;
     element_t *last = *list;
-    if (it == NULL)
-        return (it);
+
     while (it->next != NULL) {
         last = it;
         it = it->next;
@@ -20,15 +22,19 @@ element_t * pop_back (element_t **list)
     if (it == *list)
         *list = NULL;
     last->next = NULL;
+
     return (it);
 }
 
-element_t * pop_front (element_t **list)
+element_t * pop_front(element_t **list)
 {
-    element_t *first_element = *list;
-    if (first_element == NULL)
+    if ((list == NULL) && (*list == NULL))
         return (NULL);
+
+    element_t *first_element = *list;
+
     *list = first_element->next;
     first_element->next = NULL;
-    return (first_element);
+
+    return (*list);
 }

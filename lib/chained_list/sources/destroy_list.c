@@ -5,15 +5,17 @@
 ** destroy_list.c
 */
 
-#include "../../../include/my.h"
+#include "../../../include/my_chained_list.h"
 
-void destroy_list (element_t **list)
+void destroy_list(element_t *list)
 {
-    if (*list == NULL)
+    if (list == NULL)
         return;
-    element_t *it = *list;
+
+    element_t *it = list;
     element_t *temp = NULL;
-    while (it != NULL) {
+
+    while (it) {
         temp = it->next;
         free(it);
         it = temp;
