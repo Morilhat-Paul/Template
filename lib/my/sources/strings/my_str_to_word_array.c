@@ -37,16 +37,6 @@ size_t count_len_word(char *str, bool (*is_separator)(char))
     return (len);
 }
 
-char * initialise_line(int lenght)
-{
-    char *str = malloc(sizeof(char) * (lenght));
-
-    for (int i = 0; i < lenght; i++)
-        str[i] = '\0';
-
-    return (str);
-}
-
 char ** store_words(char **array, char *str, bool (*is_separator)(char))
 {
     size_t i = 0;
@@ -55,8 +45,7 @@ char ** store_words(char **array, char *str, bool (*is_separator)(char))
 
     while (str[i] != '\0') {
         len_word = count_len_word(&str[i], is_separator);
-        array[line] = initialise_line(len_word + 1);
-        my_strncpy(array[line], &str[i], len_word);
+        array[line] = my_strndup(&str[i], len_word);
         i += (len_word);
         if (str[i] == '\0')
             break;
