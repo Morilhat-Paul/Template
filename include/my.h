@@ -13,9 +13,6 @@
     #include "my_strings.h"
     #include "my_array.h"
 
-    size_t my_get_size_file(char const *file);
-    int my_read_file(const char *file, char **buffer);
-
     /* Macro for free a pointer
     ** only if the pointer is not NULL or free */
     #define MY_FREE(ptr) \

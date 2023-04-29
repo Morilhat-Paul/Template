@@ -9,7 +9,19 @@
 #ifndef MY_CHAINED_LIST_H_
     #define MY_CHAINED_LIST_H_
 
-    #include "my_struct.h"
+    #include <sys/types.h>
+    #include <stdlib.h>
+
+    /**
+    ** @brief Element for the chained_list
+    ** @param data Pointer to the data you want to store
+    ** @param next Pointer to the next element of the list,
+    ** NULL if it's the end
+    **/
+    typedef struct element {
+        void *data;
+        struct element *next;
+    } element_t;
 
     /**
     ** @brief Draw the list

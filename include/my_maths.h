@@ -8,11 +8,10 @@
 #ifndef MY_MATHS_H_
     #define MY_MATHS_H_
 
-    #include <sys/types.h>
-    #include <stdbool.h>
-    #include <stdlib.h>
-    #include <stdarg.h>
-    #include <stdio.h>
+        #include <sys/types.h>
+        #include <stdbool.h>
+        #include <stdlib.h>
+        #include <stdarg.h>
 
     /**
     ** @brief Add 'n' numbers

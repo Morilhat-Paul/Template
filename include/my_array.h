@@ -8,10 +8,6 @@
 #ifndef MY_ARRAY_H_
     #define MY_ARRAY_H_
 
-    // void my_sort_in_array_nbr(ssize_t *array, size_t size);
-    // void my_sort_in_array(void **array, int type);
-    // void my_sort_in_array_str(char **array);
-
     /**
     ** @brief Create an array
     ** @param n Number of rows in the array without the NULL row
