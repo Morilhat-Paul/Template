@@ -9,7 +9,9 @@
 
 bool is_helper(char *arg)
 {
-    if ((arg[0] == '-') && (arg[1] == 'h') && (arg[2] == '\0'))
+    if (my_strcmp(arg, "-h") == 0)
+        return (true);
+    if (my_strcmp(arg, "--helper") == 0)
         return (true);
     return (false);
 }
