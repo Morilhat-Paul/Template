@@ -5,7 +5,7 @@
 ** my_nbrcmp.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 int my_nbrcmp(ssize_t nb1, ssize_t nb2)
 {

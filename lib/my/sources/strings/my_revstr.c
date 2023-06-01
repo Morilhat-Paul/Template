@@ -5,7 +5,7 @@
 ** my_revstr.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 void my_revstr(char *str)
 {
@@ -22,6 +22,6 @@ void my_revstr(char *str)
     }
     tempstr[i] = '\0';
 
-    str = my_strcpy(str, tempstr);
-    MY_FREE(tempstr);
+    my_strcpy(str, tempstr);
+    free(tempstr);
 }

@@ -5,7 +5,7 @@
 ** my_strncmp.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 int my_strncmp(char const *str1, char const *str2, int n)
 {

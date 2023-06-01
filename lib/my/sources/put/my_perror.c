@@ -5,7 +5,7 @@
 ** my_perror.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 void my_perror(char *str)
 {

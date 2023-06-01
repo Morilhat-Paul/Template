@@ -65,7 +65,6 @@
 
     /**
     ** @brief Calculate the power of the number
-    ** has the exponent 'p'
     ** @param nb The number you want to calculate
     ** @param p The exponent
     ** @return The power of the number
@@ -83,21 +82,21 @@
     /* Macro to get the absolute number of a number */
     #define ABS(value) ((ssize_t) value < 0 ? (value * -1) : value)
 
-    /* Macro to get the square of a number */
+    /* Macro to get the square number of a number */
     #define SQUARE(x) (x * x)
 
-    /* Macro to verify if a number is negative not */
+    /* Macro to verify if a number is negative */
     #define IS_NEG(value) ((ssize_t) value < 0)
 
-    /* Macro to check if a value1 is greater than value2 */
+    /* Macro to check if a value is greater than another one */
     #define NBR_IS_SUP(value1, value2)  \
     ((ssize_t) value1) > ((ssize_t) value2)
 
-    /* Macro to check if a value1 is less than value2 */
+    /* Macro to check if a value is less than another one */
     #define NBR_IS_INF(value1, value2)  \
     ((ssize_t) value1) < ((ssize_t) value2)
 
-    /* Macro to check if a value1 is equal than value2 */
+    /* Macro to check if a value is equal than another one */
     #define NBR_IS_EQ(value1, value2)  \
     ((ssize_t) value1) == ((ssize_t) value2)
 

@@ -5,13 +5,11 @@
 ** my_binary_to_decimal.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 static bool error_handling(char *binary)
 {
     for (int i = 0; binary[i] != '\0'; i++) {
-        if (binary[0] == '-')
-            continue;
         if ((binary[i] == '0') || (binary[i] == '1'))
             continue;
         my_perror(NOT_A_BINARY);

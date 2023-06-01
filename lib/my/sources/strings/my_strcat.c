@@ -5,7 +5,7 @@
 ** my_strcat.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 char * my_strcat(char *dest, char const *src)
 {

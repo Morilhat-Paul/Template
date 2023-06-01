@@ -6,13 +6,11 @@
 */
 
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 static bool error_handling(char *str, size_t position, char *result)
 {
-    char *position_str = my_nbr_to_str(position);
-
-    if ((position > my_strlen(str) + 1)) {
+    if (position > my_strlen(str) + 1) {
         my_perror(WRONG_POSITION);
         return (false);
     }

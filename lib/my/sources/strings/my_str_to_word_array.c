@@ -5,23 +5,26 @@
 ** my_str_to_word_array.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 size_t count_words(char const *str, bool (*is_separator)(char))
 {
-    int i = 0;
     size_t nb_word = 1;
-    int nb_separator = 0;
+    size_t nb_separator = 0;
 
-    while (str[i] != '\0') {
+    if (str[0] == '\0')
+        return (0);
+
+    for (int i = 0; str[i] != '\0'; i++) {
         nb_separator = 0;
         while (is_separator(str[i])) {
             nb_separator++;
             i++;
         }
+        if (nb_separator == my_strlen(str))
+            return (0);
         if (nb_separator > 0)
             nb_word++;
-        i++;
     }
 
     return (nb_word);
@@ -59,9 +62,17 @@ char ** store_words(char **array, char *str, bool (*is_separator)(char))
 
 char **my_str_to_word_array(char *str, bool (*is_separator)(char))
 {
-    size_t nb_word = count_words(str, is_separator);
-    char **array = malloc(sizeof(char *) * (nb_word + 1));
+    size_t nb_word = -1;
+    char **array = NULL;
 
+    if ((!str) || (!is_separator))
+        return (NULL);
+    nb_word = count_words(str, is_separator);
+
+    if (nb_word == 0)
+        return (NULL);
+
+    array = malloc(sizeof(char *) * (nb_word + 1));
     array[nb_word] = NULL;
     if (nb_word == 1) {
         array[0] = my_strdup(str);

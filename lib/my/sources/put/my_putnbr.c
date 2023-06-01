@@ -5,7 +5,7 @@
 ** my_putnbr.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 void my_putnbr(ssize_t nb)
 {

@@ -5,7 +5,7 @@
 ** my_create_array.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 void my_destroy_array(void **array)
 {

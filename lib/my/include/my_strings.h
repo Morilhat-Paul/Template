@@ -96,7 +96,7 @@
     size_t my_strlen(char const *str);
 
     /**
-    ** @brief Transform all the upcase charactere of a string
+    ** @brief Convert all the upcase charactere of a string
     ** into lowcase charactere
     ** @param str The source string
     ** @return Pointer to the new source string
@@ -104,7 +104,7 @@
     char * my_strlowcase(char *str);
 
     /**
-    ** @brief Appends the src string to the dest string,
+    ** @brief Appends n bytes of the src string to the dest string,
     ** overwriting the terminating null byte ('\0') at the end of dest,
     ** and then adds a terminating null byte.
     ** The strings may not overlap, and the dest string
@@ -170,7 +170,7 @@
     char * my_strupcase(char *str);
 
     /* Macro for verify if a character
-    ** is alpha */
+    ** is an alpha */
     #define IS_ALPHA(c) \
     (( ( (c) >= 'a' ) && ( (c) <= 'z' ) ) \
 || ( ( (c) >= 'A' ) && ( (c) <= 'Z' ) ))
@@ -179,6 +179,12 @@
     ** is a numeric */
     #define IS_NUM(c) \
     (( ( (c) >= '0' ) && ( (c) <= '9' ) ) )
+
+    /* Macro for verify if a character
+    ** is a space, indentation or a line break */
+    #define IS_SPACES(c) \
+    ( ( (c) == ' ' ) || ( (c) == '\t' ) \
+|| ( (c) == '\n' ) )
 
     /* Macro for verify if a character
     ** is alphanumeric */

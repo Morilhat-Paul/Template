@@ -5,7 +5,7 @@
 ** my_compute_power_rec.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 int my_power(int nb, int p)
 {

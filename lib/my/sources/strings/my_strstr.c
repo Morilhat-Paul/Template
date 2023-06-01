@@ -5,14 +5,14 @@
 ** my_strstr.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 char * my_strstr(char *str, char const *to_find)
 {
     int i = 0;
     int temp = 0;
 
-    if ((to_find == NULL) && (str == NULL))
+    if ((to_find == NULL) || (str == NULL))
         return (NULL);
 
     while (str[i] != '\0') {

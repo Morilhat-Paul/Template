@@ -5,11 +5,11 @@
 ** my_strncat.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 char * my_strncat(char *dest, char const *src, int nb)
 {
-    if ((!src) && (nb == 0))
+    if ((!src) || (nb == 0))
         return (dest);
     if (!dest)
         return ((char *) src);

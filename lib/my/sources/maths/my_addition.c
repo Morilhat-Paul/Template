@@ -5,7 +5,7 @@
 ** my_addition.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 ssize_t my_addition(int n, ...)
 {

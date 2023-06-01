@@ -8,6 +8,8 @@
 #ifndef MY_ARRAY_H_
     #define MY_ARRAY_H_
 
+    #include "stdlib.h"
+
     /**
     ** @brief Create an array
     ** @param n Number of rows in the array without the NULL row
@@ -48,7 +50,7 @@
     #define PUT_LINE_ERROR \
 "my_putarray: The pointer to the funtcion 'put_line' is NULL\n"
 
-    #define NONE_ALPHA_NUM_SEPARATOR    \
-"my_putarray: The separator is not an alphanumeric character or '\0'\n"
+    #define NONE_SPACES_SEPARATOR    \
+"my_putarray: The separator is not a spaces character or '\0'\n"
 
 #endif /* MY_ARRAY_H_ */

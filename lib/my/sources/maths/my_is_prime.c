@@ -5,7 +5,7 @@
 ** my_is_prime.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 bool my_is_prime (int nb)
 {
@@ -20,9 +20,8 @@ bool my_is_prime (int nb)
     i = n;
     if (i == nb)
         return (true);
-    if ((i != nb) || (i != 1))
+    if (i != 1)
         return (false);
 
-    my_is_prime(n + 1);
-    return (false);
+    return (my_is_prime(n + 1));
 }

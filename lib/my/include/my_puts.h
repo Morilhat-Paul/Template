@@ -12,27 +12,26 @@
     #include <unistd.h>
 
     /**
-    ** @brief Print a system error message
-    ** to stderr
-    ** @param str The message you want to print
+    ** @brief Write a system error message to stderr
+    ** @param str The message you want to wrint
     **/
     void my_perror(char *str);
 
     /**
     ** @brief Write a character to stdout
-    ** @param c The character you want to print
+    ** @param c The character you want to wrint
     **/
     void my_putchar(char c);
 
     /**
     ** @brief Write a number to stdout
-    ** @param nb The number you want to print
+    ** @param nb The number you want to wrint
     **/
     void my_putnbr(ssize_t nb);
 
     /**
     ** @brief Write a message to stdout
-    ** @param str The message you want to print
+    ** @param str The message you want to wrint
     **/
     void my_putstr(char const *str);
 

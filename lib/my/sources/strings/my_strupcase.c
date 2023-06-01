@@ -5,16 +5,20 @@
 ** my_strupcase.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 char * my_strupcase(char *str)
 {
+    char *new_str = NULL;
+
     if (!str)
         return (NULL);
 
-    for (int i = 0; str[i] != '\0'; i++)
-        if ((IS_ALPHA(str[i])) && (!IS_UPCASE(str[i])))
-            str[i] -= 32;
+    new_str = my_strdup(str);
 
-    return (str);
+    for (int i = 0; new_str[i] != '\0'; i++)
+        if ((IS_ALPHA(new_str[i])) && (!IS_UPCASE(new_str[i])))
+            new_str[i] -= 32;
+
+    return (new_str);
 }

@@ -5,7 +5,7 @@
 ** my_putarray.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 static bool error_handling(void **array, void(*put_line)(void *),
                                                 char separator)
@@ -18,8 +18,8 @@ static bool error_handling(void **array, void(*put_line)(void *),
         return (false);
     }
 
-    if ((separator != '\0') && (!IS_ALPHA_NUM(separator))) {
-        my_perror(NONE_ALPHA_NUM_SEPARATOR);
+    if ((separator != '\0') && (!IS_SPACES(separator))) {
+        my_perror(NONE_SPACES_SEPARATOR);
         return (false);
     }
 

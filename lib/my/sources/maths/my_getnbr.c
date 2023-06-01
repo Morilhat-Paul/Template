@@ -5,7 +5,7 @@
 ** my_getnbr.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 ssize_t my_getnbr(char const *str)
 {

@@ -29,17 +29,27 @@ ARR				=	array
 MAT				=	maths
 PUT				=	put
 STR				=	strings
+MKDIR			=	mkdir -p
+RM				=	rm -rf
+PRINT			=	echo
 
 vpath %.c $(SOURCE_DIR)
+
+
+
+## PRINTING ##
+
+COMPILING	=	${BOLD}${PURPLE}"\t=== Compiling $<"						${END}
+BUILD_DONE	=	${BOLD}${GREEN}"\t=== Building my\t\t\t"${ITALIC}"DONE !\n"	${END}
 
 
 
 ## COMPILER OPTIONS ##
 
 CC		=	gcc
-AR		=	ar
+AR		=	ar rc
 CFLAGS	=	-W -Wall -Wextra -Werror	\
-			-I$(HEADER_DIR)	\
+			-I${HEADER_DIR}	\
 			-Wno-unused-variable	\
 			-Wno-unused-parameter
 
@@ -47,37 +57,38 @@ CFLAGS	=	-W -Wall -Wextra -Werror	\
 
 ## 	SOURCES FILES	##
 
-SRC		=	$(MAT)/my_addition.c	\
-			$(MAT)/my_binary_to_decimal.c	\
-			$(MAT)/my_getnbr.c	\
-			$(MAT)/my_is_prime.c	\
-			$(MAT)/my_multiplication.c	\
-			$(MAT)/my_nbrcmp.c	\
-			$(MAT)/my_power.c	\
-			$(MAT)/my_square_root.c	\
-			$(PUT)/my_perror.c	\
-			$(PUT)/my_putchar.c	\
-			$(PUT)/my_putnbr.c	\
-			$(PUT)/my_putstr.c	\
-			$(STR)/my_addchar.c	\
-			$(STR)/my_revstr.c	\
-			$(STR)/my_str_to_nbr.c	\
-			$(STR)/my_str_to_word_array.c	\
-			$(STR)/my_strcat.c	\
-			$(STR)/my_strcmp.c	\
-			$(STR)/my_strcpy.c	\
-			$(STR)/my_strdup.c	\
-			$(STR)/my_strlen.c	\
-			$(STR)/my_strlowcase.c	\
-			$(STR)/my_strncat.c	\
-			$(STR)/my_strncmp.c	\
-			$(STR)/my_strncpy.c	\
-			$(STR)/my_strstr.c	\
-			$(STR)/my_strupcase.c	\
-			$(ARR)/my_destroy_array.c	\
-			$(ARR)/my_putarray.c	\
-			$(ARR)/my_putnarray.c	\
-			$(ARR)/my_create_array.c
+SRC		=	${MAT}/my_addition.c	\
+			${MAT}/my_binary_to_decimal.c	\
+			${MAT}/my_getnbr.c	\
+			${MAT}/my_is_prime.c	\
+			${MAT}/my_multiplication.c	\
+			${MAT}/my_nbrcmp.c	\
+			${MAT}/my_power.c	\
+			${MAT}/my_square_root.c	\
+			${PUT}/my_perror.c	\
+			${PUT}/my_putchar.c	\
+			${PUT}/my_putnbr.c	\
+			${PUT}/my_putstr.c	\
+			${STR}/my_addchar.c	\
+			${STR}/my_revstr.c	\
+			${STR}/my_nbr_to_str.c	\
+			${STR}/my_str_to_word_array.c	\
+			${STR}/my_strcat.c	\
+			${STR}/my_strcmp.c	\
+			${STR}/my_strcpy.c	\
+			${STR}/my_strdup.c	\
+			${STR}/my_strlen.c	\
+			${STR}/my_strlowcase.c	\
+			${STR}/my_strncat.c	\
+			${STR}/my_strncmp.c	\
+			${STR}/my_strncpy.c	\
+			${STR}/my_strndup.c	\
+			${STR}/my_strstr.c	\
+			${STR}/my_strupcase.c	\
+			${ARR}/my_destroy_array.c	\
+			${ARR}/my_putarray.c	\
+			${ARR}/my_putnarray.c	\
+			${ARR}/my_create_array.c
 
 
 
@@ -86,9 +97,9 @@ SRC		=	$(MAT)/my_addition.c	\
 OBJ		=	${SRC:%.c=${OBJECT_DIR}/%.o}
 
 ${OBJECT_DIR}/%.o : %.c
-	@mkdir -p $(dir $@)
-	@${CC} -c $< -o $@ ${CFLAGS} ${LFLAGS}
-	@echo ${BOLD}${PURPLE}"\t=== Compiling $<" $(END)
+	@$(MKDIR) $(dir $@)
+	@$(CC) -c $< -o $@ ${CFLAGS} ${LFLAGS}
+	@$(PRINT) ${COMPILING}
 
 
 
@@ -96,13 +107,13 @@ ${OBJECT_DIR}/%.o : %.c
 
 .PHONY: all re clean fclean
 
-all: $(TARGET_NAME)
+all: ${TARGET_NAME}
 
 clean:
-	@rm -rf $(OBJECT_DIR)
+	@$(RM) ${OBJECT_DIR}
 
 fclean: clean
-	@rm -f $(TARGET_NAME)
+	@$(RM) ${TARGET_NAME}
 
 re: fclean all
 
@@ -111,7 +122,6 @@ re: fclean all
 ##	FILE GENERATOR	##
 
 $(TARGET_NAME): $(OBJ)
-	@$(AR) rc $(TARGET_NAME) $(OBJ)
+	@$(AR) ${TARGET_NAME} ${OBJ}
 	@cp $@ ..
-	@echo ${BOLD}${GREEN}\
-	"\t=== Building my\t\t\t"${ITALIC}"DONE !\n" ${END}
+	@$(PRINT) ${BUILD_DONE}
