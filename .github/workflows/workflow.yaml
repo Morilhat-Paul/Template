@@ -115,6 +115,12 @@ jobs:
       - name: Run the unitary tests
         run: make re tests_run display_test
         timeout-minutes: 2
+      - name: Get the coverage reports
+        run: |
+          coverage_branches=$(awk '/TOTAL/ {print substr($NF, 1, length($NF)-1)}' "coverage_branches.txt")
+          coverage=$(awk '/TOTAL/ {print substr($NF, 1, length($NF)-1)}' "coverage.txt")
+          echo "COVERAGE_BRANCHES=$coverage_branches" >> $GITHUB_ENV
+          echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
       - name: Update coverage badge
         uses: schneegans/dynamic-badges-action@v1.6.0
@@ -123,7 +129,7 @@ jobs:
           gistID: ef0cca4079ae9a36ebea3cbdd3b1c4d4
           filename: coverage_branches.json
           label: Coverage branches
-          message: ${{ env.COVERAGE_BRANCHES }}
+          message: ${{ env.x²x²² }}
           valColorRange: ${{ env.COVERAGE_BRANCHES }}
           minColorRange: 50
           maxColorRange: 90
