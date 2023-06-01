@@ -17,7 +17,7 @@
 </p>
 <p align="center">
   <img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/Morilhat-Paul/Template?style=plastic">
-  <a href="https://github.com/Morilhat-Paul/Test_repo/actions/workflows/workflow.yaml"><img src="https://github.com/Morilhat-Paul/Test_repo/actions/workflows/workflow.yaml/badge.svg" /></a>
+  <a href="https://github.com/Morilhat-Paul/Template/actions/workflows/workflow.yaml"><img src="https://github.com/Morilhat-Paul/Template/actions/workflows/workflow.yaml/badge.svg" /></a>
   <a href="https://github.com/Morilhat-Paul/Test_repo/actions/workflows/workflow.yaml"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Morilhat-Paul/ef0cca4079ae9a36ebea3cbdd3b1c4d4/raw/coverage_branches.json" /></a>
   <a href="https://github.com/Morilhat-Paul/Test_repo/actions/workflows/workflow.yaml"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Morilhat-Paul/5aefbeb214141a920be299077e83b91f/raw/coverage.json" /></a>
 </p>
