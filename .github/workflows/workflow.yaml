@@ -88,7 +88,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run the unitary tests
-        run: make re tests_run display_test
+        run: make re tests_run upload_test
         timeout-minutes: 2
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
