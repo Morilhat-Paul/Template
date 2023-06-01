@@ -113,7 +113,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run the unitary tests
-        run: make re tests_run display_test
+        run: make re tests_run upload_test
         timeout-minutes: 2
       - name: Get the coverage reports
         run: |
