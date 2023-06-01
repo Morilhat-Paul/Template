@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** Template
 ** File description:
-** test_my_nbrcmp.c
+** tests_my_strcat.c
 */
 
 #include <criterion/criterion.h>
@@ -22,4 +22,12 @@ Test (my_strcat, dest_empty) {
 
 Test (my_strcat, src_empty) {
     cr_assert_str_eq(my_strcat("Hello", ""), "Hello");
+}
+
+Test (my_strcat, null_dest) {
+    cr_assert_str_eq(my_strcat(NULL, "Hello"), "Hello");
+}
+
+Test (my_strcat, null_src) {
+    cr_assert_str_eq(my_strcat("Hello", NULL), "Hello");
 }

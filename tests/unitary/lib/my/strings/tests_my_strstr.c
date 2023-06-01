@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** Lem-In
+** Template
 ** File description:
-** test_my_strstr.c
+** tests_my_strstr.c
 */
 
 #include <criterion/criterion.h>
@@ -33,4 +33,22 @@ Test (my_strstr, find_in_middle) {
     char *result = my_strstr(str, to_find);
 
     cr_assert_str_eq(result, "tous le monde");
+}
+
+Test (my_strstr, null_str) {
+    char *to_find = "tous";
+    char *str = "Hello tous le monde";
+
+    char *result = my_strstr(NULL, to_find);
+
+    cr_assert_eq(result, NULL);
+}
+
+Test (my_strstr, null_str_and_no_find) {
+    char *to_find = "tous";
+    char *str = "Hello tous le monde";
+
+    char *result = my_strstr(NULL, NULL);
+
+    cr_assert_eq(result, NULL);
 }

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** Template
 ** File description:
-** test_my_nbrcmp.c
+** tests_my_strncmp.c
 */
 
 #include <criterion/criterion.h>
