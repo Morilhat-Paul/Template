@@ -119,8 +119,8 @@ jobs:
         run: |
           coverage_branches=$(awk '/TOTAL/ {print substr($NF, 1, length($NF)-1)}' "tests/coverage_branches.txt")
           coverage=$(awk '/TOTAL/ {print substr($NF, 1, length($NF)-1)}' "tests/coverage.txt")
-          echo "COVERAGE_BRANCHES=$tests/coverage_branches" >> $GITHUB_ENV
-          echo "COVERAGE=$tests/coverage" >> $GITHUB_ENV
+          echo "COVERAGE_BRANCHES=$coverage_branches" >> $GITHUB_ENV
+          echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
       - name: Update coverage badge
         uses: schneegans/dynamic-badges-action@v1.6.0
