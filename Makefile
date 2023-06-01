@@ -126,6 +126,12 @@ display_test:
 	@$(GCOVR) ${TEST_DIR}/unitary/
 	@$(PRINT) ${END_UNITARY_TESTS}
 
+upload_test:
+	@$(PRINT) ${START_UNITARY_TESTS}
+	@$(GCOVR) ${TEST_DIR}/unitary/ --branches --print-summary --keep --output=${TEST_DIR}/coverage_branches.txt
+	@$(GCOVR) ${TEST_DIR}/unitary/ --keep --output=${TEST_DIR}/coverage.txt
+	@$(PRINT) ${END_UNITARY_TESTS}
+
 tests_all: fclean_tests
 	@-$(MAKE) ${TEST_DIR}/ functional
 	@$(PRINT) ${START_UNITARY_TESTS}

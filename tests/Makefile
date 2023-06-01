@@ -33,6 +33,7 @@ OBJECT_DIR			=	unitary/objects
 SRC_UNIT_DIR		=	unitary/sources
 LIBRARY_UNIT_DIR_MY	=	unitary/lib/my
 LIBRARY_UNIT_DIR_LIST	=	unitary/lib/chained_list
+COV_REPORT			=	coverage.txt coverage_branches.txt
 CRITERION			=	--coverage -lcriterion
 MAKE				=	make -s -C
 MKDIR				=	mkdir -p
@@ -129,9 +130,11 @@ all: $(TARGET_NAME)
 
 clean:
 	@$(RM) *.gc*
+	@$(RM) ../*.gcov
 	@$(PRINT) ${CLEAN_TESTS}
 
 fclean: clean
+	@$(RM) ${COV_REPORT}
 	@$(RM) ${TARGET_NAME}
 	@$(RM) functional/${PROJECT_NAME}
 	@$(PRINT) ${CLEAN_TESTS_BIN}
