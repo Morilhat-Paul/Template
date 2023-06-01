@@ -5,7 +5,7 @@
 ** push.c
 */
 
-#include "../../../include/my_chained_list.h"
+#include "my_simple_chained_list.h"
 
 element_t * push_back(element_t **list, element_t *element)
 {
@@ -29,15 +29,18 @@ element_t * push_back(element_t **list, element_t *element)
 
 element_t * push_front(element_t **list, element_t *element)
 {
-    if ((list == NULL) && (*list == NULL)
+    element_t *temp = NULL;
+
+    if (((list == NULL) || (*list == NULL))
         && (element != NULL))
         return (element);
 
     if (element == NULL)
         return (*list);
 
-    element->next = *list;
+    temp = *list;
+    element->next = temp;
     *list = element;
 
-    return (*list);
+    return (temp);
 }

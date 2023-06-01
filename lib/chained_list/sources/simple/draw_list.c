@@ -5,8 +5,8 @@
 ** draw_list.c
 */
 
-#include "../../../include/my_chained_list.h"
-#include "../../../include/my.h"
+#include "my_simple_chained_list.h"
+#include "my.h"
 
 void draw_list(element_t *list, void (*pf)(void *))
 {

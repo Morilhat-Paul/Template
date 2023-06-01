@@ -25,17 +25,28 @@ TARGET_NAME		=	libchained_list.a
 SOURCE_DIR		=	sources
 OBJECT_DIR		=	objects
 HEADER_DIR		=	include
+MAKE			=	make -s -C
+MKDIR			=	mkdir -p
+RM				=	rm -rf
+PRINT			=	echo
 
 vpath %.c $(SOURCE_DIR)
+
+
+
+## PRINTING ##
+
+COMPILING	=	${BOLD}${PURPLE}"\t=== Compiling $<"								${END}
+BUILD_DONE	=	${BOLD}${GREEN}"\t=== Building chained_list\t\t"${ITALIC}"DONE !\n"	${END}
 
 
 
 ## COMPILER OPTIONS ##
 
 CC		=	gcc
-AR		=	ar
+AR		=	ar rc
 CFLAGS	=	-W -Wall -Wextra -Werror	\
-			-I$(HEADER_DIR)	\
+			-I${HEADER_DIR} -I../my/include	\
 			-Wno-unused-variable	\
 			-Wno-unused-parameter
 
@@ -43,14 +54,16 @@ CFLAGS	=	-W -Wall -Wextra -Werror	\
 
 ## 	SOURCES FILES	##
 
-SRC		=	create_node.c	\
-			draw_list.c	\
-			destroy_list.c	\
-			pop.c	\
-			push.c	 \
-			rotate.c	\
-			swap.c	\
-			len_list.c
+SRC		=	simple/create_node.c	\
+			simple/create_list.c	\
+			simple/draw_list.c	\
+			simple/destroy_list.c	\
+			simple/pop.c	\
+			simple/push.c	 \
+			simple/rotate.c	\
+			simple/swap.c	\
+			simple/len_list.c	\
+			simple/find.c
 
 
 
@@ -59,9 +72,9 @@ SRC		=	create_node.c	\
 OBJ		=	${SRC:%.c=${OBJECT_DIR}/%.o}
 
 ${OBJECT_DIR}/%.o : %.c
-	@mkdir -p $(dir $@)
-	@${CC} -c $< -o $@ ${CFLAGS} ${LFLAGS}
-	@echo ${BOLD}${PURPLE}"\t=== Compiling $<" $(END)
+	@$(MKDIR) $(dir $@)
+	@$(CC) -c $< -o $@ ${CFLAGS} ${LFLAGS}
+	@$(PRINT) ${COMPILING}
 
 
 
@@ -69,13 +82,13 @@ ${OBJECT_DIR}/%.o : %.c
 
 .PHONY: all re clean fclean
 
-all: $(TARGET_NAME)
+all: ${TARGET_NAME}
 
 clean:
-	@rm -rf $(OBJECT_DIR)
+	@$(RM) ${OBJECT_DIR}
 
 fclean: clean
-	@rm -f $(TARGET_NAME)
+	@$(RM) ${TARGET_NAME}
 
 re: fclean all
 
@@ -84,7 +97,6 @@ re: fclean all
 ##	FILE GENERATOR	##
 
 $(TARGET_NAME): $(OBJ)
-	@$(AR) rc $(TARGET_NAME) $<
+	@$(AR) ${TARGET_NAME} ${OBJ}
 	@cp $@ ..
-	@echo ${BOLD}${GREEN}	\
-	"\t=== Building chained_list\t\t"${ITALIC}"DONE !\n" ${END}
+	@$(PRINT) ${BUILD_DONE}

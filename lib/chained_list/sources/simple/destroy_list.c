@@ -5,7 +5,7 @@
 ** destroy_list.c
 */
 
-#include "../../../include/my_chained_list.h"
+#include "my_simple_chained_list.h"
 
 void destroy_list(element_t *list)
 {
