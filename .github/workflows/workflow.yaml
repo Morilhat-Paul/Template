@@ -129,7 +129,7 @@ jobs:
           gistID: ef0cca4079ae9a36ebea3cbdd3b1c4d4
           filename: coverage_branches.json
           label: Coverage branches
-          message: ${{ env.x²x²² }}
+          message: ${{ env.COVERAGE_BRANCHES }}
           valColorRange: ${{ env.COVERAGE_BRANCHES }}
           minColorRange: 50
           maxColorRange: 90
