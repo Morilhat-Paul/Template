@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2022
-## Lem_in
+## Template
 ## File description:
 ## Makefile
 ##
@@ -22,7 +22,7 @@ LYELLOW	=	"\e[93m"
 
 ## 		OPTIONS 	##
 
-VERSION 			:=	$(shell git describe --tags --always)
+VERSION 			:=	$(shell git describe --tags --abbrev=0)
 VERSION_HEADER		=	include/version.h
 TARGET_NAME			=	template
 SOURCE_DIR			=	sources
@@ -41,6 +41,7 @@ PRINT				=	echo
 vpath %.c $(SOURCE_DIR)
 
 
+
 ## PRINTING ##
 
 BUILD_DONE		= 	${BOLD}${GREEN}"=== Building\t\t\t\t"${ITALIC}"DONE !"			${END}
@@ -50,6 +51,7 @@ CLEAN_OBJ		= 	${BOLD}${GREEN}"=== Cleaning object\t\t\t\t"${ITALIC}"DONE !"	${EN
 COMPILING		= 	${BOLD}${PURPLE}"=== Compiling $<"								$(END)
 START_UNITARY	= 	${BOLD}${BLUE}"\n\t\t\tSTARTING THE UNITARY TESTS !\n"			${END}
 END_UNITARY		= 	${BOLD}${BLUE}"\n\t\t\tEND OF UNITARY TESTS !\n"				${END}
+HEADER			=	"/*\n** EPITECH PROJECT, 2022\n** Template\n** File description:\n** version.h\n*/\n"
 
 
 
@@ -97,7 +99,8 @@ version.h:
 	@$(PRINT) $(VERSION)
 
 version: version.h
-	@$(PRINT) "#define PROJECT_VERSION \"$(VERSION)\"" > ${VERSION_HEADER}
+	@$(PRINT) ${HEADER} > ${VERSION_HEADER}
+	@$(PRINT) "#define PROJECT_VERSION \"$(VERSION)\"" >> ${VERSION_HEADER}
 
 clean:
 	@$(MAKE) ${LIBRARY_DIR} clean
