@@ -105,15 +105,17 @@ SRC_LIB_MY	=	${LIBRARY_SRC_MY}/${MAT}/my_addition.c	\
 				${LIBRARY_SRC_MY}/${ARR}/my_putnarray.c	\
 				${LIBRARY_SRC_MY}/${ARR}/my_create_array.c
 
-SRC_LIB_LIST=	${LIBRARY_SRC_LIST}/*.c
+SRC_LIB_LIST=	${LIBRARY_SRC_LIST}/simple/*.c
 
 SRC			=	${SRC_LIB_MY}	\
+				${SRC_LIB_LIST}	\
 				${SOURCE_DIR}/is_helper.c
 
 UNIT_TESTS	=	${LIBRARY_UNIT_DIR_MY}/${ARR}/*.c	\
 				${LIBRARY_UNIT_DIR_MY}/${MAT}/*.c	\
 				${LIBRARY_UNIT_DIR_MY}/${PUT}/*.c	\
 				${LIBRARY_UNIT_DIR_MY}/${STR}/*.c	\
+				${LIBRARY_UNIT_DIR_LIST}/*.c	\
 				${SRC_UNIT_DIR}/*.c
 
 
