@@ -15,6 +15,11 @@ void draw_list(element_t *list, void (*pf)(void *))
         return;
     }
 
+    if (pf == NULL) {
+        my_perror("The function pointer is null\n");
+        return;
+    }
+
     while (list) {
         (*pf)(list->data);
         list = list->next;

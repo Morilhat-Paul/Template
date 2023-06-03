@@ -6,19 +6,24 @@
 */
 
 #include "my_simple_chained_list.h"
+#include "my.h"
 
 element_t * push_back(element_t **list, element_t *element)
 {
-    element_t *it = *list;
+    element_t *it = NULL;
 
     if (element == NULL)
         return (*list);
-
+    if (list == NULL) {
+        list = &element;
+        return (element);
+    }
     if (*list == NULL) {
         element->next = NULL;
         *list = element;
         return (*list);
     }
+    it = *list;
     while (it->next != NULL)
         it = it->next;
     element->next = NULL;
@@ -29,18 +34,21 @@ element_t * push_back(element_t **list, element_t *element)
 
 element_t * push_front(element_t **list, element_t *element)
 {
-    element_t *temp = NULL;
-
-    if (((list == NULL) || (*list == NULL))
-        && (element != NULL))
-        return (element);
-
     if (element == NULL)
         return (*list);
 
-    temp = *list;
-    element->next = temp;
-    *list = element;
+    if (list == NULL) {
+        list = &element;
+        return (element);
+    }
 
-    return (temp);
+    if (*list == NULL) {
+        *list = element;
+        return (*list);
+    }
+
+    element->next = *list;
+    *list = element ;
+
+    return (*list);
 }
